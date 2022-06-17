@@ -4,8 +4,15 @@
 golang网络通信超时设置
 https://www.cnblogs.com/lanyangsh/p/10852755.html
 
-# sms  
+### sms  
 Stream Media Server  
+
+### 流媒体服务器
+https://m7s.live/
+https://j.m7s.live/player.html
+https://www.freecodecamp.org/
+https://chinese.freecodecamp.org/
+https://www.topgoer.com/
 
 ### 编译命令  
 go build -o sms main.go http.go rtmp.go  
@@ -16,6 +23,15 @@ rtmp -> sms -> rtmp
 ### rtmp参考资料
 https://blog.csdn.net/lightfish_zhang/article/details/88681828
 https://www.cnblogs.com/jimodetiantang/p/8974075.html
+
+### 测试时使用到的命令
+go build -o slivehlsupload_mac main.go http.go sqlite.go upload.go mqtt.go stream.go hls.go s3.go
+ffmpeg -i GSPm8n46bmUqT-cf6dbn1ehZ_20220105103534_42840.ts -ss 0 -frames:v 1 -f image2 -y test.jpg
+ffmpeg -re -stream_loop -1 -i fruit.mp4 -vcodec copy -acodec copy -f flv rtmp://127.0.0.1/live/cctv1
+ffmpeg -re -stream_loop -1 -i fruit.mp4 -vcodec copy -acodec copy -f flv rtmp://172.20.25.20/SP63nBbfmlbW/GSP63nBbfmlbW-fnMebne7hV
+ffplay rtmp://172.20.25.20/SP63nBbfmlbW/GSP63nBbfmlbW-fnMebne7hU
+ffplay http://172.20.25.20:8082/SP63nBbfmlbW/GSP63nBbfmlbW-fnMebne7hU.flv?mediaServerIp=172.20.25.20&codeType=H264
+ffplay http://172.20.25.20:8082/SP63nBbfmlbW/GSP63nBbfmlbW-fnMebne7hV.m3u8
 
 ### sms待解决问题
 1 rtmp收流，rtmp/flv/hls播放
